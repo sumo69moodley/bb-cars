@@ -129,7 +129,7 @@ p{margin:0}
 .dot.on,.dot:hover{opacity:1}
 .dot .bar{height:3px;background:rgba(255,255,255,.25);overflow:hidden;width:100%}
 .dot .bar i{display:block;height:100%;width:0;background:var(--red)}
-.dot.on .bar i{animation:fill var(--dur,6.5s) linear forwards}
+.dot.on .bar i{animation:fill var(--dur,4.5s) linear forwards}
 .hero.paused .dot.on .bar i{animation-play-state:paused}
 @keyframes fill{to{width:100%}}
 .dot .lbl{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
@@ -905,7 +905,7 @@ section{position:relative}
   [].forEach.call(dr.querySelectorAll('a'),function(a){a.addEventListener('click',function(){setDr(false)})});
 
   // Hero slider
-  var hero=document.getElementById('hero'), slides=hero.querySelectorAll('.slide'), dots=hero.querySelectorAll('.dot'), cur=0, timer, DUR=6500;
+  var hero=document.getElementById('hero'), slides=hero.querySelectorAll('.slide'), dots=hero.querySelectorAll('.dot'), cur=0, timer, DUR=4500;
   var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   hero.style.setProperty('--dur',DUR+'ms');
   function go(i){
