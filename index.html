@@ -57,6 +57,14 @@ p{margin:0}
 .btn.white{--bg:#fff;--fg:var(--ink)}
 .btn.white:hover{--bg:var(--ink);--fg:#fff;border-color:var(--ink)}
 .btns{display:flex;flex-wrap:wrap;gap:12px}
+/* Slow pulse glow on buttons */
+.btn{--glow:224,32,42;animation:btnGlow 3s ease-in-out infinite}
+.btn.white,.btn.ghost{--glow:255,255,255}
+.btn.line{--glow:224,32,42}
+.care-cta .btn.dark,.insure .btn{--glow:255,255,255}
+.btn:hover,.btn:focus-visible{animation-play-state:paused;box-shadow:0 0 22px 4px rgba(var(--glow),.6)}
+@keyframes btnGlow{0%,100%{box-shadow:0 0 0 0 rgba(var(--glow),0)}50%{box-shadow:0 0 20px 4px rgba(var(--glow),.5)}}
+@media (prefers-reduced-motion:reduce){.btn{animation:none}}
 
 /* Top bar */
 .topbar{background:var(--ink);color:#cfd0d4;font-size:.88rem}
