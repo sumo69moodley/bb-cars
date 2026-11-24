@@ -920,8 +920,6 @@ section{position:relative}
   [].forEach.call(dots,function(d,i){d.addEventListener('click',function(){go(i)})});
   document.getElementById('prev').addEventListener('click',function(){go(cur-1)});
   document.getElementById('next').addEventListener('click',function(){go(cur+1)});
-  hero.addEventListener('mouseenter',function(){hero.classList.add('paused');clearTimeout(timer)});
-  hero.addEventListener('mouseleave',function(){hero.classList.remove('paused');restart()});
   hero.addEventListener('keydown',function(e){if(e.key==='ArrowLeft')go(cur-1);if(e.key==='ArrowRight')go(cur+1)});
   var sx=null;
   hero.addEventListener('touchstart',function(e){sx=e.touches[0].clientX},{passive:true});
