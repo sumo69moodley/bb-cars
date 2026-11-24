@@ -58,9 +58,9 @@ p{margin:0}
 .btn.white:hover{--bg:var(--ink);--fg:#fff;border-color:var(--ink)}
 .btns{display:flex;flex-wrap:wrap;gap:12px}
 /* Slow pulse glow on buttons */
-.btn{--glow:224,32,42;--ga:.85;--gb:34px;--gs:7px;animation:btnGlow 3s ease-in-out infinite}
-.btn.white,.btn.ghost,.care-cta .btn.dark,.insure .btn{--glow:255,255,255;--ga:.5;--gb:20px;--gs:4px}
-.btn:hover,.btn:focus-visible{animation-play-state:paused;box-shadow:0 0 calc(var(--gb) + 6px) var(--gs) rgba(var(--glow),var(--ga))}
+/* White glow only on white, outlined and dark-on-red buttons; red buttons have no glow */
+.btn.white,.btn.ghost,.care-cta .btn.dark{--glow:255,255,255;--ga:.5;--gb:20px;--gs:4px;animation:btnGlow 3s ease-in-out infinite}
+.btn.white:hover,.btn.ghost:hover,.care-cta .btn.dark:hover,.btn.white:focus-visible,.btn.ghost:focus-visible,.care-cta .btn.dark:focus-visible{animation-play-state:paused;box-shadow:0 0 calc(var(--gb) + 6px) var(--gs) rgba(var(--glow),var(--ga))}
 @keyframes btnGlow{0%,100%{box-shadow:0 0 0 0 rgba(var(--glow),0)}50%{box-shadow:0 0 var(--gb) var(--gs) rgba(var(--glow),var(--ga))}}
 @media (prefers-reduced-motion:reduce){.btn{animation:none}}
 
