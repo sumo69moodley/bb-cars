@@ -206,6 +206,16 @@ section{position:relative}
 .pillars{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:52px}
 .pillar{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12);border-radius:var(--r);padding:26px 24px;display:grid;gap:12px;align-content:start;transition:background .25s,border-color .25s,transform .25s}
 .pillar:hover{background:rgba(224,32,42,.12);border-color:rgba(224,32,42,.6);transform:translateY(-3px)}
+/* Shine sweeps across one box at a time, in order: each box gets a 1.1s slot in a 6.6s cycle */
+.pillar{position:relative;overflow:hidden}
+.pillar::after{content:"";position:absolute;top:-10%;bottom:-10%;left:0;width:45%;pointer-events:none;background:linear-gradient(100deg,rgba(255,255,255,0) 0%,rgba(255,255,255,.04) 30%,rgba(255,255,255,.28) 50%,rgba(255,255,255,.04) 70%,rgba(255,255,255,0) 100%);transform:translateX(-160%) skewX(-18deg);animation:pillarShine 6.6s linear infinite}
+.pillar:nth-child(2)::after{animation-delay:1.1s}
+.pillar:nth-child(3)::after{animation-delay:2.2s}
+.pillar:nth-child(4)::after{animation-delay:3.3s}
+.pillar:nth-child(5)::after{animation-delay:4.4s}
+.pillar:nth-child(6)::after{animation-delay:5.5s}
+@keyframes pillarShine{0%{transform:translateX(-160%) skewX(-18deg)}16.66%{transform:translateX(330%) skewX(-18deg)}100%{transform:translateX(330%) skewX(-18deg)}}
+@media (prefers-reduced-motion:reduce){.pillar::after{animation:none;display:none}}
 .shield{width:58px;height:64px;background:var(--red);clip-path:path("M29 0 L58 10 L58 32 C58 50 44 60 29 64 C14 60 0 50 0 32 L0 10 Z");display:grid;place-items:center}
 .shield svg{width:28px;height:28px;color:#fff}
 .pillar h3{font-size:1.45rem;letter-spacing:.04em}
